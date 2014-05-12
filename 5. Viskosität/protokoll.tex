@@ -13,6 +13,8 @@
 
 \section{Einleitung}
 \label{sec:einleitung}
+Dieser Versuch ist in zwei Teile unterteilt. Im ersten Experiment wird das Phänomen der Kapillarität untersucht, welches  es Flüssigkeiten ermöglicht durch Oberflächenspannung die Schwerkraft zu überwinden. Dadurch wird zum Beispiel der Wassertransport in Pflanzen ermöglicht. Im zweiten Experiment wird die Viskosität untersucht. Diese ist ein Maß für die Zähflüssigkeit einer Flüssigkeit und beeinflusst damit unter anderem ihre Fließgeschwindigkeit.
+
 
 \section{Theorie}
 \label{sec:theorie}
@@ -26,7 +28,7 @@ Dipol-Dipol-Kräfte hingegen werden zwischen Molekülen erzeugt, die ein dauerha
 Hält man einen Festkörper in eine Flüssigkeit so entstehen zwischen den Molekülen der Flüssigkeit und den Molekülen des Festkörpers Adhäsionskräfte. Sind diese Adhäsionskräfte größer als die Kohäsionskräfte innerhalb der Flüssigkeit so kann man beobachten wie sich die Flüssigkeit am Rand des Festkörpers hochzieht. Dieser Effekt heißt Kapillarität und ist besonders gut zu beobachten, wenn man eine Glaskapillare in Wasser hält. Man sieht,dass das Wasser im Inneren der Kapillare einen höheren Pegelstand als die Flüssigkeit außerhalb der Kapillare hat. Durch die stärkeren Adhäsionskräfte leistet das Wasser Arbeit entgegen der Gravitationskraft, was den Begriff der Oberflächenspannung $\sigma$ motiviert. \[\textup dW=\sigma\cdot\textup dA\hspace{1cm}\Leftrightarrow\hspace{1cm}\sigma=\frac{\textup dW}{\textup dA}\] Steigt das Wasser in der Kapillare um die noch zu bestimmende Höhe h an, so verändert sich die potentielle Energie um \[\textup dE_{Pot}=m\cdot g\cdot\textup dh=\rho\cdot\pi\cdot R^2\cdot h\cdot g\cdot\textup dh\] und die Oberflächenenergie um \[\textup dE_{O}=-2\cdot\pi\cdot R\cdot\sigma\cdot\textup dh\]Dabei ist $\rho$ die Dichte des Wassers und $R$ der Radius der Kapillare. Die Energieerhaltung liefert 
 \begin{align}
 \textup dE_{Pot}+\textup dE_{O}&=0 \nonumber\\
-\Leftrightarrow\pi\cdot R^2\cdot\rho\cdot h \cdot g\cdot\textup dh&=2\pi\cdot R\cdot\sigma\cdot\textup dh \nonumber\\
+\Leftrightarrow\hspace{0.6cm}\pi\cdot R^2\cdot\rho\cdot h \cdot g\cdot\textup dh&=2\pi\cdot R\cdot\sigma\cdot\textup dh \nonumber\\
 \Leftrightarrow\hspace{1.5cm} \frac{1}{2}\cdot R\cdot\rho\cdot h\cdot g&=\sigma \label{eq:oberflaechenspannung}
 \end{align}\newline
 
@@ -85,13 +87,18 @@ Verursacht wird die Viskosität von der inneren Reibung $F_r=-\eta\cdot A\cdot\f
 Damit lässt sich die gesamte Flüssigkeitsmenge, die pro Zeiteinheit t durch einen Hohlzylinder fließt angeben durch $\rm dV=2\pi\cdot r\cdot v(r)\cdot t\cdot dt$. Integrieren liefert
 \begin{align*}
 \Rightarrow \hspace*{1cm}\int_0^R\rm dV\,\rm dr&=2\pi\cdot\frac{(p_1-p_2)}{4l\cdot\eta}\cdot t\cdot\int_0^Rr(R^2-r^2)\,\rm dr \\
-\Leftrightarrow \hspace*{2.4cm}V&=\frac{\pi\cdot(p_1-p_2)}{8l\cdot\eta}\cdot t\rm,
+\Leftrightarrow \hspace*{2.4cm}V&=\frac{\pi\cdot(p_1-p_2)}{8l\cdot\eta}\cdot R^4\cdot t\rm,
 \end{align*}
 woraus man die Hagen-Poiseille Gleichung der laminaren Rohrströmung erhält
-\begin{align*}
-\dot V&=\frac{\pi\cdot(p_1-p_2)}{8l\cdot\eta}\cdot.
-\end{align*}
-Diese Gleichung sagt aus, wie der Volumenstrom vom Druckgradienten $(p_1-p_2)/l$ und von der Viskosität des Fluids abhängt. Dies zu wissen ist zum Beispiel bei der Wahl des Motoröls im Auto entscheidend. Da man den Rohrradius in dem das Öl zufließt nicht verändern kann, war es früher notwendig verschiedene Motoröle mit verschiedenen Viskositäten $\eta$ zu verwenden um auf temperaturbedingte Druckunterschiede zu reagieren.
+\begin{align}
+\dot V&=\frac{\pi\cdot(p_1-p_2)}{8l\cdot\eta}\cdot R^4 \label{eq:viskositaet}
+\end{align}
+Diese Gleichung sagt aus, wie der Volumenstrom vom Druckgradienten $(p_1-p_2)/l$ und von der Viskosität des Fluids abhängt. Dies zu wissen ist zum Beispiel bei der Wahl des Motoröls im Auto entscheidend. Da man den Rohrradius in dem das Öl zufließt nicht verändern kann, war es früher notwendig verschiedene Motoröle mit verschiedenen Viskositäten $\eta$ zu verwenden um auf temperaturbedingte Druckunterschiede zu reagieren.\\
+
+%Umformen der Gleichung nach $\eta$ ergibt die Formel für die Viskosität für ein Volumen $V_{h_2}=A\cdot h_2$ das in der Zeit $t_{h_2}$ abfließt. Die Druckdifferenz ist $(p_1-p_2)=\frac{1}{2}\rho g(h_1-h_2)$.
+%\begin{align*}
+%\eta=\frac{\pi\cdot\rho g(h_1-h_2)\cdot R^4}{16l}\cdot\frac{t_{h_2}}{V_{h_2}}
+%\end{align*}
 
 \section{Durchführung}
 \label{sec:durchfuehrung}
@@ -101,16 +108,14 @@ Lösungsmittel und Wasser zu säubern und anschließend mit der Wasserstrahlpump
 Der Radius R jeder Kapillare ist mindestens dreimal mit Hilfe des Mikroskops zu bestimmen.\\
 
 \subsection{Teilversuch 1: Kapillarität}
-\label{D:Kapillarität}
 Die zu untersuchenden Flüssigkeiten, destilliertes Wasser, Methanol und Ethylenglykol werden in ausreichender Menge in Bechergläser gegeben. Jede der Kapillaren wird in die Flüssigkeiten getaucht und dann soweit wieder herausgehoben, dass sich der Nullpunkt der Messskala auf gleichem Niveau mit dem Flüssigkeitsspiegel der Flüssigkeit im Becherglas befindet. Mit Hilfe der Skala ist dann der Höhenunterschied $h_kap$ der Flüssigkeitsspiegel zu bestimmen. Dies wird für jede Kapillare und jede Flüssigkeit mindestens dreimal wiederholt. \\
 Die Dichte $rho$ der Flüssigkeiten ist mit Hilfe der Mohrschen Waage zu bestimmen, wobei darauf geachtet werden sollte, dass der Probekörper trocken und sauber ist, bevor er in die Flüssigkeit getaucht wird und dass er in diese für die Messung dann vollständig eingetaucht ist.\\
 
 \subsection{Teilversuch 2: Viskosität}
-\label{D:Viskosität}
 \begin{figure}
 \centering
 \includegraphics[scale=0.7]{Hagen-Poiseuille.png}
-\caption{Versuchsaufbau: $\left($ Hagen-Poiseuillesches Gesetz $\right)$}
+\caption{Versuchsaufbau: $\left( \rm{Hagen-Poiseuillesches Gesetz} \right)$}
 \end{figure}
 Zu messen sind die Temperatur $T_W$ des destillierten Wassers, die Länge der Kapillaren $l$, sowie das Volumen des Glasgefäßes zwischen den Strichmarken 50 und 45.\\
 \begin{itemize}
@@ -124,7 +129,7 @@ Zu messen sind die Temperatur $T_W$ des destillierten Wassers, die Länge der Ka
 In der Tabelle \ref{tab:l_kap} und Tabelle \ref{tab:d_kap} sind die gemessenen Längen $l$ und Durchmesser $d$ der Kapillare.
 Aus den Werten in Tabelle \ref{tab:mohrsche_waage} und der Formel \eqref{eq:mohrsche_waage} folgen die relativen Dichten von destilliertem Wasser, Methanol und Ethylenglykol und mit der Voraussetzung $\rho _{Wasser} = 10^{3}\cdot\kilogramm\cdot\meter^{-3}$ die Dichten in Tabelle \ref{tab:dichte}.
 
-\begin{wraptable}{r}{5cm}[!h]
+\begin{table}[!h]
 \centering
 \begin{tabular}{r|l}
     Kapillar & $l[\milli\meter]$\\
@@ -135,7 +140,7 @@ Aus den Werten in Tabelle \ref{tab:mohrsche_waage} und der Formel \eqref{eq:mohr
     
  \end{tabular} 
  \caption{\label{tab:l_kap}Länge $l$ der Kapillare}
-\end{wraptable}
+\end{table}
 
 \begin{table}[!h]
 \centering
@@ -184,13 +189,13 @@ Aus den Werten in Tabelle \ref{tab:mohrsche_waage} und der Formel \eqref{eq:mohr
 \subsection{Kapillarität}
 
 Die Messwerte der Höhenunterschiede $h_{Kap}$ zur Bestimmung der Kapillarität sind in Tabelle \ref{tab:h_kap_was} für destilliertes Wasser, in Tabelle \ref{tab:h_kap_met} für Methanol und in Tabelle \ref{tab:h_kap_eth} für Ethylenglykol aufgeführt.
-Aus diesen Messwerten ergeben sich nach den Formeln \eqref{eq:oberflaechenspannung} die Werte für die Oberflächenspannung $\sigma$  in der Tabelle \ref{tab:oberflaechenspannung}, sowie in der Grafik \ref{img:oberflaechenspannung}.
+Aus diesen Messwerten ergeben sich nach der Formel \eqref{eq:oberflaechenspannung} die Werte für die Oberflächenspannung $\sigma$  in der Tabelle \ref{tab:oberflaechenspannung}, sowie in der Grafik \ref{img:ofs}.
 Für die Berechnung der Fehler in der Oberflächenspannung gilt
 \begin{align}
   \frac{\sigma_\sigma}{\sigma} = \sqrt{\left(\frac{\sigma_{R}}{R}\right)^2 + \left(\frac{\sigma_{\rho}}{\rho}\right) ^2 + \left(\frac{\sigma_{h}}{h}\right)^2} 
 \end{align}
 
-\begin{table}
+\begin{table}[!h]
 \centering
 \begin{tabular}{r|c|c|c}
     Kapillar & Messung 1 & Messung 2 & Messung 3\\
@@ -203,7 +208,7 @@ Für die Berechnung der Fehler in der Oberflächenspannung gilt
  \caption{\label{tab:h_kap_was}$h_{Kap} \rm{in} \milli\meter$ für destilliertes Wasser mit einem Fehler von $\pm 1\milli\meter$}
 \end{table}
 
-\begin{table}
+\begin{table}[!h]
 \centering
 \begin{tabular}{r|c|c|c}
     Kapillar & Messung 1 & Messung 2 & Messung 3\\
@@ -216,7 +221,7 @@ Für die Berechnung der Fehler in der Oberflächenspannung gilt
  \caption{\label{tab:h_kap_met}$h_{Kap} \rm{in} \milli\meter$ für Methanol mit einem Fehler von $\pm 1\milli\meter$}
 \end{table}
 
-\begin{table}
+\begin{table}[!h]
 \centering
 \begin{tabular}{r|c|c|c}
     Kapillar & Messung 1 & Messung 2 & Messung 3\\
@@ -229,64 +234,133 @@ Für die Berechnung der Fehler in der Oberflächenspannung gilt
  \caption{\label{tab:h_kap_eth}$h_{Kap} \rm{in} \milli\meter$ für Ethylenglykol mit einem Fehler von $\pm 1\milli\meter$}
 \end{table}
 
-\begin{table}
+\begin{table}[!h]
 \centering
 \begin{tabular}{r|c|c|c}
     Kapillar/Messung & $\sigma _{Wasser}$ & $\sigma _{Methanol}$ & $\sigma _{Ethylenglykol}$\\
     \hline
-    Rot 1 & $ 73(3)$ & $ 26.5$ & $ 50.0$\\
-    Rot 2 & $ 77(3)$ & $ 24.8$ & $ 50.0$\\
-    Rot 3 & $ 79(3)$ & $ 24.8$ & $ 54.5$ \\
+    Rot 1 & $ 73(3)$ & $ 27(2)$ & $ 50(3)$\\
+    Rot 2 & $ 77(3)$ & $ 25(2)$ & $ 50(3)$\\
+    Rot 3 & $ 79(3)$ & $ 25(2)$ & $ 55(3)$ \\
     \hline
-    Blau 1 & $ 26(3)$ & $ 24.4$ & $ 62.5$ \\
-    Blau 2 & $ 66(3)$ & $ 24.4$ & $ 50.0$ \\
-    Blau 3 & $ 69(3)$ & $ 26.8$ & $ 46.9$ \\
+    Blau 1 & $ 26(3)$ & $ 24(3)$ & $ 63(3)$ \\
+    Blau 2 & $ 66(3)$ & $ 24(3)$ & $ 50(3)$ \\
+    Blau 3 & $ 69(3)$ & $ 27(3)$ & $ 47(3)$ \\
     \hline
-    Grün 1 & $ 66(5)$ & $ 22.5$ & $ 48.1$ \\
-    Grün 2 & $ 75(5)$ & $ 22.5$ & $ 48.1$ \\
-    Grün 3 & $ 66(5)$ & $ 26.3$ & $ 52.9$ \\
+    Grün 1 & $ 66(5)$ & $ 23(4)$ & $ 48(5)$ \\
+    Grün 2 & $ 75(5)$ & $ 23(4)$ & $ 48(5)$ \\
+    Grün 3 & $ 66(5)$ & $ 26(4)$ & $ 53(5)$ \\
     
  \end{tabular} 
- \caption{\label{tab:oberflaechenspannung}Oberflächenspannung $\sigma$ in $ $}
+ \caption{\label{tab:oberflaechenspannung}Oberflächenspannung $\sigma$ in $\milli\newton\cdot\meter^{-1}$}
 \end{table}
 
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.6]{ofs.png}
+\caption{\label{img:ofs} Gemessene Oberflächenspannungen}
+\end{figure}
+
+Damit ergibt sich 
+\begin{table}[!h]
+\centering
+\begin{tabular}{r|c|c|c}
+    & Wasser & Methanol & Ethylenglykol\\
+    \hline
+    Gewichteter Mittelwert & $66.1\pm1.1$ & $25.1\pm0.8$ & $51.8\pm1.1$ \\
+    \hline
+    Literaturwert & $72.8$ & $22.6$ & $31.4$ \\
+ \end{tabular} 
+ \caption{Gewichtete Mittelwerte}
+\end{table}
 
 \subsection{Viskosität}
 
+Aus der Formel \eqref{eq:viskositaet}
+\begin{align}
+ \dot V&=\frac{R^{4}\cdot\pi\cdot(p_1-p_2)}{8l\cdot\eta} \nonumber \\
+ \folgt \frac{\Delta V}{\Delta t} &= \frac{R^{4}\cdot\pi\cdot\Delta p}{8\cdot l\cdot\eta} \nonumber \\
+ \folgt \eta &= \frac{R^{4}\cdot\pi\cdot\Delta p\cdot t_A}{8\cdot l\cdot\Delta V}
+\end{align}
 
-\begin{table}
+und den gemessenen Ausflusszeiten $t_A$ in Tabelle \ref{tab:t_A} von $\Delta V=0.205 \liter$ Wasser und einem Druckunterschied $\Delta p = h\cdot\rho\cdot g = (4,66\pm0,24)\cdot 10^{3} \pascal$ ergeben sich die Viskositäten in Tabelle \ref{tab:eta}.
+Für die Fehler ergibt sich nach Fehlerfortpflanzung
+\begin{align}
+  \frac{\sigma_\eta}{\eta} = \sqrt{\left(4\cdot\frac{\sigma_{R}}{R}\right)^2 + \left(\frac{\sigma_{\Delta p}}{\Delta p}\right)^2 + \left(\frac{\sigma_{t_A}}{t_A}\right) ^2 + \left(\frac{\sigma_{l}}{l}\right)^2}  \nonumber
+\end{align}
+
+\begin{table}[!h]
 \centering
-\begin{tabular}{rl}
-    Kapillar & $t_A$\\
+\begin{tabular}{r|l}
+    Kapillar & $t_A [\second]$\\
     \hline
-    Rot & 67\\
-    Blau & 20 \\
-    Grün & 6\\
+    Rot & 67(1)\\
+    Blau & 20(1)\\
+    Grün & 6(1)\\
     
- \end{tabular} \label{tab:t_A}
- \caption{Ausflusszeit $t_A$ von $20.5\milli\liter$ destilliertem Wasser bei $50\centi\meter$ Füllhöhe}
+ \end{tabular} 
+ \caption{\label{tab:t_A}Ausflusszeit $t_A$ von $20.5\milli\liter$ destilliertem Wasser bei $50\centi\meter$ Füllhöhe}
 \end{table}
 
+\begin{table}[!h]
+\centering
+\begin{tabular}{r|l}
+    Kapillar & $\eta [\milli\pascal\cdot\second]$\\
+    \hline
+    Rot & $0.84\pm0.09$\\
+    Blau & $0.95\pm0.09$\\
+    Grün & $1.5\pm0.3$\\
+    
+ \end{tabular} 
+ \caption{\label{tab:eta}Viskosität $\eta$ nach den Messwerten in Tabelle \ref{tab:t_A}}
+\end{table}
 
+Daraus ergibt sich der gewichtete Mittelwert $\bar{\eta}=0.93(6) \milli\pascal\cdot\second$. \\
+Der Literaturwert\footnote{Nach P. Schaaf (2014): ”Das Physikalische Praktikum”. Universitätsverlag Göttingen} für die Viskosität von Wasser zum Vergleich bei $20\degree\celsius$ liegt bei $\eta = 1.002 \milli\pascal\cdot\second$.
+\\
+\\
+Um einen zweiten Wert für die Viskosität zu erhalten kann nach der Formel 
+\begin{align}
+ h(t) = h_0 \cdot \rm{exp}\left(-\frac{\rho\cdot g\cdot R^{4}}{8\cdot\eta\cdot l \cdot r^{2}}\cdot t \right)
+\end{align}
+mit den Werten aus Tabelle \ref{tab:t(h)} eine lineare Regression von $log\left(h(t)\right)$ über $t$ durchführen und bekommt $f(t)=m\cdot t+b$ mit
+\begin{align}
+ m=-\frac{\rho\cdot g\cdot R^{4}}{8\cdot\eta\cdot l\cdot r^{2}} \label{eq:m}
+\end{align}
+wobei $V=h\cdot\pi\cdot r^{2}$
 
-\begin{table}
+\begin{table}[!h]
 \centering
 \begin{tabular}{r|c|c|c|c|c|c|c|c|c|c}
-    Messung & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+     Messung & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$\\
     \hline
     \hline
-    $h_1[\centi\meter]$ & $49$ & $45$ & $40$ & $35$ & $30$ & $50$ & $40$ & $50$ & $46$ & $42$  \\
+    $h[\centi\meter]$ & $45$ & $40$ & $35$ & $30$ & $25$ & $40$ & $30$ & $43$ & $42$ & $38.5$ \\
     \hline
-    $h_2[\centi\meter]$ & $45$ & $40$ & $35$ & $30$ & $25$ & $40$ & $30$ & $43.5$ & $42.5$ & $38.5$ \\
-    \hline
-    $t[\second]$ & $52$ & $75$ & $83$ & $99$ & $112$ & $142$ & $182$ & $45$ & $49$ & $54$ \\
+    $t(h)[\second]$ & $52(1)$ & $127(2)$ & $210(3)$ & $309(4)$ & $421(5)$ & $142(1)$ & $324(2)$ & $52(1)$ & $108(2)$ & $162(3)$ \\
     
- \end{tabular} \label{tab:werte}
- \caption{Länge $l$ der Kapillare in $\milli\meter$}
+ \end{tabular} 
+ \caption{\label{tab:t(h)}Abflusszeit $t(h)$}
 \end{table}
 
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.5]{Viskositaet.png}
+\caption{Höhe $h$ der Wassersäule halblogarithmisch über der Zeit $t(h)$}
+\end{figure}
 
+Als Geradensteigung ergibt sich $m=-(1.60\pm0.01) \second^{-1}$. Nach der Formel \eqref{eq:m} folgt $\eta = 0.83(8) \milli\pascal\cdot\second$ mit der Formel
+\begin{align}
+ \frac{\sigma_{\eta}}{\eta}= \sqrt{\left(4\cdot\frac{\sigma_{R}}{R}\right)^2 + \left(\frac{\sigma_{V}}{V}\right)^2 + \left(\frac{\sigma_{l}}{l}\right) ^2 + \left(\frac{\sigma_{m}}{m}\right)^2}  \nonumber
+\end{align}
+für den Fehler.
 \section{Diskussion}
 \label{sec:diskussion}
+Im Allgemeinen ist festzustellen, dass die Kapillare teilweise nicht zentriert und nicht sonderlich rund gebohrt sind. Besonders die Exzentrizität zusammen mit der Tatsache, dass die Kapillare beim Messen des Durchmessers nicht fixiert sind, kann zu großen Fehlern führen. Ein Stoß gegen den Tisch hat warscheinlich unsere erste Messung des Durchmessers des roten Kapillar verfälscht. Deshalb haben wir diese Messung im Weiteren nicht berücksichtigt.
+\\
+Bei der Berechnung der Oberflächenspannungen sind relativ große Fehler gegenüber den Literaturwerten aufgetreten. Dies lässt sich durch Schwerigkeiten beim Ablesen von $h_{kap}$ aufgrund zu kleiner und verschmierter Skalen erklären. Außerdem sind wahrscheinlich trotz gründlicher Reinigung Verunreinigungen in den Kapilaren zurückgebileben, denn teilweise hat sich der Flüssigkeitsspiegel beim Bewegen des Kapillar nicht verändert. So ist es wahrscheinlich zu der starken Abweichung u.a. bei der vierten Messung von Wasser gekommen.  
+\\
+Die Ergebnisse für die Viskosität sind recht annehmbar, denn trotz vieler potentieller Fehlerquellen sind die relativen Fehler mit ca. $6.9\%$ bzw. $9.8\%$ verhältnismäßig klein und der Literaturwert bei der gegebenen Raumtemperatur von $(24.5\pm0.5) \degree\celsius$ liegt mit etwas über $0.89 \milli\pascal\cdot\second$ im Bereich der Messtoleranz.
+
 
 \end{document}
