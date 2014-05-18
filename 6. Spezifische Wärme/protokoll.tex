@@ -75,7 +75,7 @@ mit $\Delta Q$ der hinzugefügten Wärmeenergie und $\Delta W = -p \Delta V$ der
 Bei einer isochoren Erwärmung, also bei $V = \const$ und damit $\Delta W = -p \Delta V = 0$, ist $\Delta U = \Delta Q$.
 Aus Gleichung \eqref{eq:U} folgt für eine Temperaturänderung $\Delta T$ somit
 \begin{align}
- \Delta Q = \Delta U = \frac{f}{2}\cdot n \cdot R \cdot \Delta T
+ \Delta Q = \Delta U = \frac{f}{2}\cdot n \cdot R \cdot \Delta T \label{eq:1}
 \end{align}
 Das Verhältnis
 \begin{align}
@@ -121,7 +121,7 @@ Aus den Gleichungen \eqref{eq:n_dT}, \eqref{eq:dU_V} und dem Hauptsatz folgt
  \folgt
  \Delta Q - p \cdot \Delta V &= \left(\Delta p \cdot V + p \cdot \Delta V\right)\cdot \frac{c_V}{R} \nn\\
  \folgt
- \frac{\Delta Q - p \cdot \Delta V}{\Delta p \cdot V + p \cdot \Delta V} &= \frac{c_V}{R} = \frac{f}{2}
+ \frac{\Delta Q - p \cdot \Delta V}{\Delta p \cdot V + p \cdot \Delta V} &= \frac{c_V}{R} = \frac{f}{2} \label{eq:2}
 \end{align}
 
 \subsection{Kondensator}
@@ -161,8 +161,185 @@ Während der Messung ist mit dem Ventil die Belüftungsöffnung des Zylinders zu
 \section{Auswertung}
 \label{sec:auswertung}
 
+\subsection{Gasthermometer}
+Das Experiment wurde etwa 175$\meter$ über dem Meeresspiegel durchgeführt. Für den Umgebungsdruck nehmen wir daher $p_0=991,3\hecto\pascal$ an. Der Gesamtdruck $p$ im Glaskolben ergibt sich aus der Summe des Umgebungsdrucks und der Messwerte. $$p=p_0+p_K$$ Die Messwerte sind in den Abbildungen \ref{wplot} und \ref{kplot} zu sehen. Aufgrund des Gay-Lussac-Gesetzes kann ein linearer Zusammenhang angenommen werden. Der Ansatz für die Regression ist daher $p(T)=mT+b$. Der Ablesefehler des Druckmessgerätes ist gering und mit $0,2\kilo\pascal$ angenommen. Die Temperatur konnte nicht direkt im Glaskolben gemessen werden sondern musste in dem umgebenden Wasser gemessen werden. Wegen möglicher Temperaturunterschiede zwischen Wasser und Luft wird ein Gesamtfehler von $0,4\kilo\pascal$ verwendet.\\
+
+Mit diesen Werten erhält man folgende Ergebnisse aus der linearen Regression
+
+\begin{table} [h]
+\centering
+\begin{tabular}{r|c|c|c|c}
+     & m & $\pm m$ & b & $\pm b$ \\
+     \hline
+    Aufwärmen &279,36 & 3,10 & 98861 & 172,4\\
+     Abkühlen & 270,75 & 3,82& 99903& 197,3 \\
+ \end{tabular} 
+ \caption{\label{tab:}Ergebnisse der Regression mit Messfehlern}
+\end{table}
+
+Mit Hilfe des gewichteten Mittelwerts erhält man daraus
+\begin{align*}
+p(T)=\left(275,9\pm2,4\right)\frac{\kilo\pascal}{\degree\celsius}\,T+\left(99312\pm130\right)\kilo\pascal
+\end{align*}
+Der absolute Nullpunkt ergibt sich dann aus
+\begin{align*}
+p(T)\stackrel{!}{=}0\hspace{1.0cm}\Leftrightarrow\hspace*{1.0cm}T=-\frac{b}{m}=(-359,96\pm2,4)\degree\celsius
+\end{align*}
+wobei der Fehler durch die Gaußsche Fehlerfortpflanzung bestimmt wurde.
+
+\begin{figure} [H]
+\centering
+\includegraphics[scale=0.6]{waermen.png}
+\caption{\label{wplot}Aufwärmen des Gasthermometers}
+\end{figure}
+
+\begin{figure} [H]
+\centering
+\includegraphics[scale=0.6]{abkuelen.png}
+\caption{\label{kplot}Abkühlen des Gasthermometers}
+\end{figure}
+
+
+
+
+\subsection{Spezifische Wärme der Luft}
+Für eine angelegte Spannung $U$ des Kondensators berechnet sich die elektrische Energie des Kondensators durch
+\begin{align*}
+\Delta Q=\frac{1}{2}\cdot C\cdot U^2
+\end{align*}
+Die Gesamtkapazität $C=2\cdot10\mu F$ ist die Summe der Kapazitäten der beiden Kondensatoren, die laut Praktikumsanleitung jeweils $10\mu F$ betragen. Der zugehörige Fehler ergibt sich aus der Fehlerfortpflanzung des Ablesefehlers $\sigma_U$ der mit $5\volt$ abgeschätzt ist. 
+\begin{align*}
+\sigma_{\Delta Q}=\sqrt{\left(\frac{\partial\Delta Q}{\partial U}\right)^2\cdot\sigma_U^2}=\sigma_U\cdot CU
+\end{align*}
+Die zugehörige Druckänderung ist durch
+\begin{align*}
+\Delta p=\rho g\Delta h=\rho g h_1\left(1+\frac{r_1^2}{r_2^2}\right)
+\end{align*}
+mit dem zugehörigen Fehler
+\begin{align*}
+\sigma_{\Delta p}=\sigma_h\rho g\left(1+\frac{r_1^2}{r_2^2}\right)=9.81\pascal
+\end{align*}
+gegeben. Aus der Praktikums anleitung erhält man die Werte für die Radien der Schenkel des Wasser-Manometers, die mit $r_1=2,0\milli\meter$ und $r_2=9,2\milli\meter$ angegeben sind sowie die Dichte von Wasser die $\rho_{H_2O}=1,0g$ beträgt. Das so berechnete Ergebnis ist in Abbildung \ref{druckplot} dargestellt, die exakten Zahlen Werte stehen zusammen mit dem Messdaten in Tabelle \ref{tab:spezwaerme}.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{druck.png}
+\caption{\label{druckplot}Druckänderung als Funktion der elektrischen Energie}
+\end{figure}
+
+
+Um die Zahl der Freiheitsgerade zu bestimmen wird Formel \ref{eq:1} verwendet. Dazu wird das Volumen des Zylinders benötigt. Die Abmessung ergab für den Durchmesser $d=(8,9\pm0,2)\centi\meter$ und für die Länge $L=(40,0\pm0,2)\centi\meter$. Damit berechnet sich das Volumen zu \begin{align*}V=\pi \left(\frac{d^2}{2}\right)^2l=(0,0025\pm0,0001)m^3.\end{align*} Der Fehler wurde durch die Fehlerfortpflanzung ermittelt.
+\begin{align*}
+\sigma_V=\sqrt{\left(\frac{\partial V}{\partial d}\right)^2\cdot\sigma_d+\left(\frac{\partial V}{\partial l}\right)^2\cdot\sigma_l}=\sqrt{\left(\pi dl\right)^2\cdot\sigma_d+\left(\pi \frac{d^2}{2}\right)^2\cdot\sigma_l}
+\end{align*}
+Für den Luftdruck im Zylinder wird derselbe Raumdruck von $p=p_0=991,3hPa$ wie im Versuch \textit{Gasthermometer} verwendet.\\
+Nun lassen sich die Freiheitsgerade $f$ gemäß
+\begin{align*}
+f=2\frac{\Delta Q-p\Delta V}{V\Delta p+p\Delta V}
+\end{align*}
+mit dem Fehler
+\begin{align*}
+\sigma_f&=\sqrt{\left(\frac{\partial f}{\partial \Delta p}\right)^2\sigma_{\Delta p}^2+\left(\frac{\partial f}{\partial \Delta Q}\right)^2\sigma_{\Delta Q}^2+\left(\frac{\partial f}{\partial \Delta V}\right)^2\sigma_{\Delta V}^2+\left(\frac{\partial f}{\partial V}\right)^2\sigma_{V}^2}\\
+ &=\sqrt{\left(\frac{-2V(\Delta Q-p\Delta V)}{(V\Delta p+p\Delta V)^2}\right)^2\sigma_{\Delta p}^2+\left(\frac{2}{V\Delta p+p\Delta V}\right)^2\sigma_{\Delta Q}^2+\left(\frac{-2p(\Delta p+\Delta Q)}{(V\Delta p+p\Delta V)^2}\right)^2\sigma_{\Delta V}^2+}\\
+ &\hspace{0.7cm}\overline{\left(\frac{-2\Delta(\Delta Q-p\Delta V)}{(V\Delta p+p\Delta V)^2}\right)^2\sigma_V^2}.
+\end{align*}
+Schließlich kann man die Molwärme $c_v$ aus der Zahl der Freiheitsgerade und der Gaskonstanten $R=8,314\frac{\joule}{\mol}$\footnote{[Dem I] Seite 266} mit Formel \ref{eq:2} bestimmen. Der Fehler ist
+\begin{align*}
+\sigma_{c_v}=\sqrt{\left(\frac{\partial c_v}{\partial f}\right)^2\sigma_f^2}=\frac{1}{2}R\sigma_f.
+\end{align*}
+Die Ergebnisse sind in Tabelle \ref{tab:fgrade} aufgeführt. Durch den gewichteten Mittelwert erhält man $f=7,35\pm0,21$ und $c_v=30,27\pm0,63\frac{\joule}{\mol\kelvin}$.
+
+
+
+
+
+
+
+
+
 
 \section{Diskussion}
 \label{sec:diskussion}
+
+\subsection{Gasthermometer}
+Der von uns gemessene Wert von  $T=(-362,08\pm2,4)\degree\celsius$ weicht um etwa $32$ Prozent vom Literaturwert von $-273,15\degree\celsius$\footnote{[Dem I] Seite 264} ab. Diese starke Abweichung ist wahrscheinlich hauptsächlich dadurch entstanden, dass der Glaskolben nicht vollständig im Wasser eingetaucht war. Außerdem ist unklar wie stark der tatsächliche Umgebungsdruck von dem angenommenen Wert abweicht.
+
+\subsection{Spezifische Wärme der Luft}
+
+Sauerstoff und Stickstoff verhalten sich so als ob sie fünf Freiheitsgerade besitzen. Der theoretische Wert für die Molwärme der Luft ist also $c_v=\frac{5R}{2}=20,785 \joule \mol^{-1} \kelvin^{-1}$ (der Anteil von Argon kann vernachlässigt werden). Vergleicht man die Zahl der tatsächlichen Freiheitsgraden mit unseren Messwerten fällt auf, dass besonders die Messungen bei $100 \volt$ und $150 \volt$ stark abweichen. Der Grund dafür kann eine kleine Abweichung der Nullposition der Skala mit der tatsächlichen Höhe des Wassers in der Ruheposition des Manometers seien. Diese verändert bei kleinen Spannungen den Messwert besonders stark. Die restlichen Werte liegen alle etwa 2,5 Freiheitsgerade über dem  tatsächlichen Wert. Es liegt also nahe, dass die Messung mit einem systematischen Fehler behaftet ist.
+
+
+
+
+
+\section*{Literatur}
+
+[Dem I] Demtröder Wolfgang, Experimentalphysik 1, 6. Auflage
+
+
+\begin{table} [h]
+\centering
+\begin{tabular}{|r|c|c|c|c|}
+	\hline
+   $ U [\volt]$ & $ h [\milli\meter]$ & $ \Delta Q [\joule]$ & $ \sigma_{\Delta Q} [J]$ & $\Delta p [\pascal]$  \\
+   \hline\hline
+  $ 100$ & $0,4$ & $ 0,1$ & $ 0,010$ & $3,93$   \\
+  $ 100$ & $0,4$ & $ 0,1$ & $ 0,010$ & $3,93$   \\
+  $ 100$ & $0,4$ & $ 0,1$ & $ 0,010$ & $3,93$   \\ \hline
+  $ 150$ & $1,6$ & $ 0,23$ & $ 0,015$ & $15,7$   \\
+  $ 150$ & $1,8$ & $ 0,23$ & $ 0,015$ & $17,67$   \\
+  $ 150$ & $1,6$ & $ 0,23$ & $ 0,015$ & $15,7$   \\ \hline
+  $ 200$ & $4,0$ & $ 0,4$ & $ 0,020$ & $ 39,26$   \\ 
+  $ 200$ & $4,0$ & $ 0,4$ & $ 0,020$ & $ 39,26$   \\
+  $ 200$ & $4,0$ & $ 0,4$ & $ 0,020$ & $ 39,26$   \\ \hline
+  $ 250$ & $6,0$ & $ 0,63$ & $ 0,025$ & $ 58,89$   \\
+  $ 250$ & $5,6$ & $ 0,63$ & $ 0,025$ & $ 54,96$   \\
+  $ 250$ & $6,0$ & $ 0,63$ & $ 0,025$ & $ 58,89$   \\ \hline
+  $ 300$ & $10,0$ & $ 0,9$ & $ 0,030$ & $ 98,15$   \\
+  $ 300$ & $10,0$ & $ 0,9$ & $ 0,030$ & $ 98,15$   \\
+  $ 300$ & $9,6$ & $ 0,9$ & $ 0,030$ & $ 94,22$   \\ \hline
+  $ 350$ & $12,0$ & $ 1,23$ & $ 0,035$ & $ 117,78$   \\
+  $ 350$ & $12,0$ & $ 1,23$ & $ 0,035$ & $ 117,78$   \\
+  $ 350$ & $12,0$ & $ 1,23$ & $ 0,035$ & $ 117,78$   \\ \hline
+  $ 400$ & $18,0$ & $ 1,6$ & $ 0,040$ & $ 176,66$   \\
+  $ 400$ & $17,0$ & $ 1,6$ & $ 0,040$ & $ 166,85$   \\
+  $ 400$ & $17,6$ & $ 1,6$ & $ 0,040$ & $ 172,74$   \\ \hline
+  $ 450$ & $21,6$ & $ 2,03$ & $ 0,045$ & $ 212,00$   \\
+  $ 450$ & $20,0$ & $ 2,03$ & $ 0,045$ & $ 196,29$   \\
+  $ 450$ & $20,0$ & $ 2,03$ & $ 0,045$ & $ 196,29$   \\ \hline
+  $ 500$ & $28,0$ & $ 2,5$ & $ 0,050$ & $ 274,81$   \\
+  $ 500$ & $27,0$ & $ 2,5$ & $ 0,050$ & $ 265,00$   \\
+  $ 500$ & $26,0$ & $ 2,5$ & $ 0,050$ & $ 255,18$   \\ \hline
+  $ 550$ & $33,0$ & $ 3,03$ & $ 0,055$ & $ 323,88$   \\
+  $ 550$ & $31,6$ & $ 3,03$ & $ 0,055$ & $ 310,14$   \\
+  $ 550$ & $30,0$ & $ 3,03$ & $ 0,055$ & $ 294,44$   \\ 
+  \hline
+ \end{tabular} 
+ \caption{\label{tab:spezwaerme}Messdaten zum Versuch Spezifische Wärme der Luft}
+\end{table}
+
+
+
+\begin{table} [h]
+\centering
+\begin{tabular}{|r|c|c|c|c|}
+	\hline
+   $ U [\volt]$ & $ f $ & $ \sigma_f$ & $ c_v\left[\frac{\joule}{\mol\kelvin}\right]$ & $\sigma_{c_v}\left[\frac{\joule}{\mol\kelvin}\right]$  \\
+   \hline\hline
+  $ 100$ & $19,30$ & $ 46,18$ & $ 80,22$ & $191,99$   \\ \hline
+  $ 150$ & $10,38$ & $ 6,02$ & $ 43,13$ & $25,03$   \\ \hline
+  $ 200$ & $7,66$ & $ 1,89$ & $ 31,85$ & $7,84$   \\ \hline
+  $ 250$ & $8,17$ & $ 1,38$ & $ 33,95$ & $5,74$   \\ \hline 
+  $ 300$ & $6,98$ & $ 0,72$ & $ 29,01$ & $3,00$   \\ \hline
+  $ 350$ & $7,82$ & $ 0,67$ & $ 32,52$ & $2,78$   \\ \hline 
+  $ 400$ & $6,98$ & $ 0,42$ & $ 29,03$ & $ 1,76$   \\ \hline
+  $ 450$ & $7,55$ & $ 0,39$ & $ 31,4$ & $ 1,63$   \\ \hline
+  $ 500$ & $7,08$ & $ 0,29$ & $ 29,46$ & $ 1,21$   \\ \hline
+  $ 550$ & $7,34$ & $ 0,26$ & $ 30,53$ & $ 1,09$   \\ \hline
+  
+ \end{tabular} 
+ \caption{\label{tab:fgrade}Freiheitsgrade und Molwärme von Luft}
+\end{table}
 
 \end{document}
