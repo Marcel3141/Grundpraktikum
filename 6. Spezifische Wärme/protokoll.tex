@@ -13,7 +13,9 @@
 
 \section{Einleitung}
 \label{sec:einleitung}
-
+Es existieren mehrere Skalen um die Messung von Temperaturen zu ermöglichen, z.B. die in Amerika häufig genutzten Fahrenheit, oder die in Europa üblichen Celsius. Dei Gemeinsamkeit die diese Skalen aber immer aufweisen ist die Existenz eines absoluten Temperatur-Nullpunkts.
+\\
+Dieser liegt bei $T = -459.67\degree\fahrenheit = -273.15\degree\celsius$
 
 \section{Theorie}
 \label{sec:theorie}
@@ -33,8 +35,8 @@ Folglich ist die gesammte innere Energie $U$ des Gases die Summe der kinetischen
 \end{align}
 mit der Bolzmannkonstante $k_B=1.381\cdot 10^{-23} \frac{\joule}{\kelvin}$
 \\
-Für einen realen Stoff gibt es neben den 3 Freiheitsgraden für Translation noch bis zu 3 Freiheitsgrade für Rotation bzw. 3 für Schwingungen.
-Auf jeden dieser Freiheitsgrade entfällt somit die Energie
+Für einen realen Stoff gibt es neben den 3 Freiheitsgraden für Translation noch bis zu 3 Freiheitsgrade für Rotation bzw. 3 für Schwingungen. Lineare Moleküle wie z.B. $N_2$, $O_2$ oder $CO_2$ haben 5 Freiheitsgerade, nämlich 3 für Translation und 2 für Rotation in einer Ebene.
+Auf jeden dieser Freiheitsgrade entfällt die Energie
 \begin{align}
  E = \frac{1}{2}\cdot k_B\cdot T \nn
 \end{align}
@@ -242,7 +244,7 @@ mit dem Fehler
 \begin{align*}
 \sigma_f&=\sqrt{\left(\frac{\partial f}{\partial \Delta p}\right)^2\sigma_{\Delta p}^2+\left(\frac{\partial f}{\partial \Delta Q}\right)^2\sigma_{\Delta Q}^2+\left(\frac{\partial f}{\partial \Delta V}\right)^2\sigma_{\Delta V}^2+\left(\frac{\partial f}{\partial V}\right)^2\sigma_{V}^2}\\
  &=\sqrt{\left(\frac{-2V(\Delta Q-p\Delta V)}{(V\Delta p+p\Delta V)^2}\right)^2\sigma_{\Delta p}^2+\left(\frac{2}{V\Delta p+p\Delta V}\right)^2\sigma_{\Delta Q}^2+\left(\frac{-2p(\Delta p+\Delta Q)}{(V\Delta p+p\Delta V)^2}\right)^2\sigma_{\Delta V}^2+}\\
- &\hspace{0.7cm}\overline{\left(\frac{-2\Delta(\Delta Q-p\Delta V)}{(V\Delta p+p\Delta V)^2}\right)^2\sigma_V^2}.
+ &\hspace{0.7cm}\overline{\left(\frac{-2\Delta p(\Delta Q-p\Delta V)}{(V\Delta p+p\Delta V)^2}\right)^2\sigma_V^2}.
 \end{align*}
 Schließlich kann man die Molwärme $c_v$ aus der Zahl der Freiheitsgerade und der Gaskonstanten $R=8,314\frac{\joule}{\mol}$\footnote{[Dem I] Seite 266} mit Formel \ref{eq:2} bestimmen. Der Fehler ist
 \begin{align*}
