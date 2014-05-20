@@ -1,0 +1,117 @@
+%---- Allgemeine Layout Einstellungen ------------------------------------------
+
+% Für Kopf und Fußzeilen, siehe auch KOMA-Skript Doku
+\usepackage[komastyle]{scrpage2}
+\pagestyle{scrheadings}
+\setheadsepline{0.5pt}[\color{black}]
+
+
+%Einstellungen für Figuren- und Tabellenbeschriftungen
+\setkomafont{captionlabel}{\sffamily\bfseries}
+\setcapindent{0em}
+
+
+%---- Weitere Pakete -----------------------------------------------------------
+% Die Pakete sind alle in der TeX Live Distribution enthalten. Wichtige Adressen
+% www.ctan.org, www.dante.de
+
+% Sprachunterstützung
+\usepackage[ngerman]{babel}
+
+% Benutzung von Umlauten direkt im Text
+% entweder "latin1" oder "utf8"
+\usepackage[utf8]{inputenc}
+
+% Pakete mit Mathesymbolen und zur Beseitigung von Schwächen der Mathe-Umgebung
+\usepackage{latexsym,exscale,stmaryrd,amssymb,amsmath}
+
+% Weitere Symbole
+\usepackage[nointegrals]{wasysym}
+\usepackage{eurosym}
+
+% Anderes Literaturverzeichnisformat
+%\usepackage[square,sort&compress]{natbib}
+
+% Für Farbe
+\usepackage{color}
+
+% Zur Graphikausgabe
+%Beipiel: \includegraphics[width=\textwidth]{grafik.png}
+\usepackage{graphicx}
+
+% Text umfließt Graphiken und Tabellen
+% Beispiel:
+% \begin{wrapfigure}[Zeilenanzahl]{"l" oder "r"}{breite}
+%   \centering
+%   \includegraphics[width=...]{grafik}
+%   \caption{Beschriftung} 
+%   \label{fig:grafik}
+% \end{wrapfigure}
+\usepackage{wrapfig}
+
+% Mehrere Abbildungen nebeneinander
+% Beispiel:
+% \begin{figure}[htb]
+%   \centering
+%   \subfigure[Beschriftung 1\label{fig:label1}]
+%   {\includegraphics[width=0.49\textwidth]{grafik1}}
+%   \hfill
+%   \subfigure[Beschriftung 2\label{fig:label2}]
+%   {\includegraphics[width=0.49\textwidth]{grafik2}}
+%   \caption{Beschriftung allgemein}
+%   \label{fig:label-gesamt}
+% \end{figure}
+\usepackage{subfigure}
+
+% Caption neben Abbildung
+% Beispiel:
+% \sidecaptionvpos{figure}{"c" oder "t" oder "b"}
+% \begin{SCfigure}[rel. Breite (normalerweise = 1)][hbt]
+%   \centering
+%   \includegraphics[width=0.5\textwidth]{grafik.png}
+%   \caption{Beschreibung}
+%   \label{fig:}
+% \end{SCfigure}
+\usepackage{sidecap}
+\usepackage{float}
+
+% Befehl für "Entspricht"-Zeichen
+\newcommand{\corresponds}{\ensuremath{\mathrel{\widehat{=}}}}
+\newcommand{\folgt}{\ensuremath{\mathrel{\Rightarrow}}}
+\newcommand{\equals}{\ensuremath{\mathrel{\Leftrightarrow}}}
+\newcommand{\degree}{\ensuremath{\mathrel{^{\circ}}}}
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\tn}[1]{\textnormal{#1}}
+\newcommand{\D}{\ensuremath{\mathrel{\rm d}}}
+
+\newcommand{\const}{\tn{const}}
+
+\newcommand{\meter}{\ensuremath{\mathrel{\tn m}}}
+\newcommand{\kilogramm}{\ensuremath{\mathrel{\tn{kg}}}}
+\newcommand{\second}{\ensuremath{\mathrel{\tn s}}}
+\newcommand{\sekunde}{\second}
+
+\newcommand{\volt}{\ensuremath{\mathrel{\tn V}}}
+\newcommand{\pascal}{\ensuremath{\mathrel{\tn{Pa}}}}
+\newcommand{\coulomb}{\ensuremath{\mathrel{\tn C}}}
+\newcommand{\newton}{\ensuremath{\mathrel{\tn N}}}
+\newcommand{\liter}{\ensuremath{\mathrel{\tn l}}}
+\newcommand{\celsius}{\ensuremath{\mathrel{\tn C}}}
+\newcommand{\fahrenheit}{\ensuremath{\mathrel{\tn F}}}
+\newcommand{\joule}{\ensuremath{\mathrel{\tn J}}}
+\newcommand{\kelvin}{\ensuremath{\mathrel{\tn K}}}
+\newcommand{\mol}{\ensuremath{\mathrel{\tn{mol}}}}
+
+\newcommand{\kilo}{\ensuremath{\mathrel{\tn k}}}
+\newcommand{\hecto}{\ensuremath{\mathrel{\tn h}}}
+
+\newcommand{\centi}{\ensuremath{\mathrel{ \tn c}}}
+\newcommand{\milli}{\ensuremath{\mathrel{ \tn m}}}
+\newcommand{\micro}{\ensuremath{\mathrel{ \tn\mu }}}
+
+
+
+%\newcommand{}{\ensuremath{\mathrel{  }}}
+%\newcommand{}{\ensuremath{\mathrel{  }}}
+%\newcommand{}{\ensuremath{\mathrel{  }}}
