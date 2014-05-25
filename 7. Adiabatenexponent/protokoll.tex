@@ -24,22 +24,90 @@
 \section{Auswertung}
 \label{sec:auswertung}
 
+\subsection{Rüchardt}
+Vor dem Versuch wurde der Umgebungsdruck im Raum gemessen. Dieser betrug $p_0=1004,1\hecto\pascal$. Außerdem wurden folgende Werte von dem Versuchsaufbau abgelesen: $M=4,88\gramm$ (Masse des schwingenden Körpers), $d=9,97\milli\meter$ (Rohrdurchmesser) und $V=2300\centi\meter^3$ (Kolbenvolumen). Der Fehler des Umgebungsdrucks ist klein und kann daher vernachlässigt werden. Die abgelesenen Wert waren ohne Fehlerangabe und werden daher als exakt angenommen.\\
 
-\begin{table}
+Aus diesen Werten berechnet sich der Druck im Kolben mit Formel \ref{eq:1} und $A=\pi\cdot (d/2)^2$ zu $p=101024\pascal$. Um die effektive Masse des schwingenden Körpers zu bestimmen muss die Masse der mitschwingenden Luftsäule $m_L=hA\rho_L$ beachtet werden. Dabei ist $\rho_L=1,225\kilogramm/\meter^3$ die Luftdichte bei $15\degree\celsius$ und $h=11,5\centi\meter$ die Höhe der Luftsäule. Die effektive Masse ist dann
+\begin{align*}
+m_{eff}=m+m_L=4,89\cdot10^-3\kilogramm.
+\end{align*}
+Nun kann aus denn Messwerten und der Formel
+\begin{align*}
+\kappa=\frac{c_p}{c_V}=\frac{64\cdot m_{eff}\cdot V}{T^2\cdot p\cdot d^4}
+\end{align*}
+für jede Messung der Adiabatenexponent bestimmt werden. Die gewichteten Mittelwerte der Ergebnisse sind in Tabelle \ref{tab:ruechardt} zusammen mit dem Fehler aufgeführt. Zur Fehlerberchnung wurde davon ausgegangen, dass die Stopuhr mit einem systematischen Fehler $\sigma_T$ von maximal 3\% behaftet ist. Der Gesamtfehler ergibt sich dann durch Fehlerfortpflanzung zu
+\begin{align*}
+\sigma_\kappa=\sqrt{\left(\frac{\partial\kappa}{\partial T}\right)^2\sigma_T^2}=\sqrt{\left(\frac{2\cdot64\cdot m\cdot V}{T^3\cdot p \cdot d^4}\right)^2\sigma_T^2}.
+\end{align*}
+
+\begin{table} [H]
 \centering
-\begin{tabular}{r|c}
-    Konstante & Wert\\
-    $V_{Klolben}$ &  \\
-    
+\begin{tabular}{|r|c|c|c|c|} \hline
+    Gas & $\kappa$ & $\sigma_\kappa$ & $f$ & $\sigma_f$ \\ \hline
+    Luft & 1,28& 0,02 & 7,14 &  0,14\\
+    $\rm{CO_2}$ & 1,22& 0,02 & 9,09 & 0,18 \\
+    Arg & 1,53& 0,02 & 3,77 &  0,08 \\ \hline
  \end{tabular} 
- \caption{\label{tab:}Konstanten}
+ \caption{\label{tab:ruechardt}Ergebnisse nach Rüchardt}
 \end{table}
 
+Zum Schluss lassen sich die Freiheitsgrade mit Formel \ref{eq:2} berechnen
+\begin{align*}
+f=\frac{2}{\kappa-1}
+\end{align*}
+mit dem Fehler
+\begin{align*}
+\sigma_f=\sqrt{\left(\frac{\partial f}{\partial \kappa}\right)^2\sigma_\kappa^2}=\frac{2}{\left(k-1\right)^2}\sigma_\kappa.
+\end{align*}
+Die Ergebnisse sind ebenfalls in Tabelle \ref{tab:ruechardt} zu finden.
 
-\begin{table}
+
+
+
+\subsection{Clement-Desormes}
+
+Die Adiabatenexponente nach Clement-Desormes berechnte sich durch
+\begin{align*}
+\kappa=\frac{c_p}{c_V}=\frac{\Delta h_1}{\Delta h_1-\Delta h_2}
+\end{align*}
+mit dem Fehler
+\begin{align*}
+\sigma_\kappa=\sqrt{\left(\frac{\partial\kappa}{\partial h_1}\right)^2\sigma_{\Delta h_1}^2+\left(\frac{\partial\kappa}{\partial h_2}\right)^2\sigma_{\Delta h_2}^2}=\sqrt{\frac{\Delta h_2}{(\Delta h_2-\Delta h_1)^2}\sigma_{\Delta h_1}+\frac{\Delta h_1}{(\Delta h_1-\Delta h_2)^2}\sigma_{\Delta h_2}}
+\end{align*}
+Die berechneten gewichteten Mittelwerte für die einzelnen Zeitintervalle sind in Tabelle \ref{tab:clement} aufgeführt. Der Ablesefehler wurde mit $\sigma_{\Delta h_1}=\sigma_{\Delta h_2}=1\milli\meter$ abgeschätzt. Insgesamt beträgt der gewichtete Mittelwert aus den Messdaten
+\begin{align*}
+\kappa=1,35\pm0,01.
+\end{align*}
+
+\begin{table} [H]
 \centering
-\begin{tabular}{r|c||c|c|c}
-    Messung & Perioden & Luft & CO$_2$ & Ar \\
+\begin{tabular}{|r|c|c|} \hline
+    $T\,[s]$ & $\kappa$ & $\sigma_\kappa$ \\ \hline
+    $0,1$ & 1,38& 0,03 \\
+    $1,0$ & 1,38& 0,03\\
+    $5,0$ & 1,3& 0,03\\ \hline
+ \end{tabular} 
+ \caption{\label{tab:clement}}
+\end{table}
+Nun soll noch der gewichtet Mittelwert von $\kappa$ für Luft aus den beiden Experimenten gebildet werden. Dieser berechnet sich zu
+\begin{align*}
+\kappa=\frac{\kappa_R/\sigma_{\kappa_R}^2+\kappa_C/\sigma_{\kappa_C}^2}{1/\sigma_{\kappa_R}^2+1/\sigma_{\kappa_C}^2}\pm\sqrt{\left(\frac{1}{\sigma_{\kappa_R}^2}+\frac{1}{\sigma_{\kappa_C}^2}\right)^{-1}}=1,34\pm0,02
+\end{align*}
+
+
+\section{Diskussion}
+\label{sec:diskussion}
+Der theoretische Wert des Adiabatenexpnenten von Luft liegt bei $\kappa=1,40$. Unser Ergebnis liegt zwar nicht in der Fehlertoleranz, weicht aber nur um weniger als 5\% von diesem Wert ab. Bei der Berechnung nach Rüchardt fällt auf, dass die Werte des Adiabatenexpnenten für alle drei Gase deutlich unter dem theoretisch zu erwartenden Werten liegen. Daher liegt die Vermutung nahe, dass hir ein systematischer Fehler vorliegt. Dieser Fehler setzt sich in der Berechnung der Freiheitsgrade fort, was deren Abweichungen erklärt. 
+
+
+
+\newpage
+\section*{Anhang}
+
+\begin{table} [H]
+\centering
+\begin{tabular}{|c|c||c|c|c|} \hline
+    Messung & Perioden & Luft & CO$_2$ & Ar \\\hline
     $1 $&$ 1 $&$ 751 $&$ 768 $&$ 685$ \\
     $2 $&$ 1 $&$ 750 $&$ 769 $&$ 687$ \\
     $3 $&$ 1 $&$ 749 $&$ 770 $&$ 686$ \\
@@ -66,10 +134,34 @@
     $1 $&$ 100 $&$ 75176 $&$ 77110 $&$ 68726$ \\
     $2 $&$ 100 $&$ 75192 $&$ 77138 $&$ 68722$ \\
     $3 $&$ 100 $&$ 75216 $&$ 77157 $&$ 68544$ \\
-    
+    \hline
  \end{tabular} 
- \caption{\label{tab:}}
+ \caption{\label{tab:}Messwerte in Millisekunden für den Versuch nach Rüchardt}
 \end{table}
+
+
+\begin{table} [H]
+\centering
+\begin{tabular}{|c|c|c|} \hline
+    Öffnungszeit & $\Delta h_1$ [\milli\meter] & $\Delta h_2$ [\milli\meter]  \\			\hline
+	$0,1$ & $48$ & $14$ \\
+	$0,1$ & $32$ & $8$\\
+	$0,1$ & $31$ & $10$\\
+    \hline
+	$1,0$ & $54$ & $14$\\
+	$1,0$ & $40$ & $10$\\
+	$1,0$ & $35$ & $11$\\
+    \hline
+	$5,0$ & $44$ & $12$\\
+	$5,0$ & $32$ & $7$\\
+	$5,0$ & $37$ & $7$\\
+    \hline
+ \end{tabular} 
+ \caption{\label{tab:}Messwerte für den Versuch nach Clement-Desormes}
+\end{table}
+
+
+
 
 
 %\begin{wraptable}{r}{5cm}
@@ -88,7 +180,6 @@
 %\end{table}
 
 
-\section{Diskussion}
-\label{sec:diskussion}
+
 
 \end{document}
