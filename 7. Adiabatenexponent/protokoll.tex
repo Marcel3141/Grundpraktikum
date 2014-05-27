@@ -16,6 +16,174 @@
 
 \section{Theorie}
 \label{sec:theorie}
+\subsection*{Zustandsänderungen}
+ Die vier möglichen Abläufe für Zustandsänderungen mit jeweils einer Konstanten
+\begin{itemize}
+\item isotherm $T=const$
+\item isochor $V=const$
+\item isobar $p=const$
+\item adiabatisch $\Delta Q=0$, d.h. kein Wärmeaustausch mit der Umgebung
+\end{itemize}
+
+\subsection{Die Poisson-Gleichung}
+Der Adiabatenexponent $\kappa$ ist in der Poisson-Gleichung als der Quotient der spezifischen Wärmekapazitäten bei konstantem Druck und konstantem Volumen.\\
+Bei einer isochore Zustandsänderung wird keine mechanische Arbeit verrichtet, es gilt also $dW = 0$, womit man für den 1. Hauptsatz der Thermodynamik 
+\begin{align*}
+dU &= dW + dQ \\
+dU &= dQ
+\end{align*}
+erhält. Zieht man nun die Formel für spezifische Wärmekapazität eines Gases
+\begin{align*}
+c_V = \left( \frac{dQ}{dT} \right)_V
+\end{align*}
+hinzu, so ergibt sich 
+\begin{align}
+\label{eq:1}
+dU = c_V \cdot dT
+\end{align}\\
+Für eine adiabatische Zustandsänderung gilt nun, dass kein Wärmeaustausch mit der Umgebung stattfindet, also ist $dQ = 0$ und somit gilt für den 1. Hauptsatz
+\begin{align*}
+dU &= dW
+\end{align*}
+\begin{align}
+\label{eq:2}
+\Rightarrow dU &= -p \cdot dV
+\end{align}\\
+Da die innere Energie eine Zustandsgröße ist, kann man nun \ref{eq:1} und \ref{eq:2} gleichsetzen und erhält 
+\begin{align}
+\label{eq:3}
+c_V \cdot dT = - p \cdot dV
+\end{align}\\
+Geht man von einem Mol eines idealen Gas aus, so gilt $p = \frac{RT}{V}$ und durch einsetzen in \ref{eq:3} erhält man
+\begin{align*}
+c_V \cdot dT &= - \frac{R\cdot T}{V}\cdot dV \\
+\equals c_V \cdot \frac{dT}{T} &= - R \frac{dV}{V} \\
+\equals c_V \cdot ln\left(T\right) &=  - R \cdot ln\left(V\right) + C \tn{\;\;, wobei}
+\end{align*}
+\begin{align}
+C &= \tn{Konstante} \nn\\
+&= c_V \cdot ln\left(T\right) + R \cdot ln\left(V\right) \nn\\
+&= ln\left(T^{c_V}V^R\right) \nn\\
+\Rightarrow T^{c_V}R^V &= const   \label{eq:4}
+\end{align}
+Nun gilt 
+\begin{align*}
+c_p &= c_V + R \\
+\Rightarrow R &= c_p - c_V
+\end{align*}
+was wenn eingesetzt in \ref{eq:4} 
+\begin{align*}
+T^{c_V}V^{c_p - c_V} &= const \\
+\end{align*}
+\begin{align}
+\label{eq:5}
+\Rightarrow TV^{\frac{c_p - c_V}{c_V}} &= TV^{\kappa - 1}\\
+&= const \nn
+\end{align}
+ergibt. Setzt man nun die ideale Gasgleichung umgestellt nach T, $T = \frac{pV}{R}$, in \ref{eq:5} ein, so erhält man
+\begin{align*}
+TV^{\kappa -1} &= \frac{pV^{\kappa}}{R} \\
+&= const
+\end{align*}
+Da R konstant ist, gilt also
+\begin{align*}
+pV^{\kappa} &= const \\
+\equals p \sim V^{-\kappa}
+\end{align*}
+
+\subsection{Berechnung des Adiabatenexponenten über Freiheitsgrade}
+Es gilt für die spezifischen Wärmekapazitäten bei konstantem Volumen
+\begin{align*}
+\frac{c_V}{R} &= \frac{f}{2} \\
+\Rightarrow c_V &= \frac{f}{2}R
+\end{align*}
+und konstantem Druck
+\begin{align*}
+c_p &= c_V + R = \left( \frac{f}{2} + 1\right)R = \frac{f + 2}{2}R
+\end{align*} 
+Entsprechend gilt für den Adiabatenexponenten
+\begin{align*}
+\kappa &= \frac{c_p}{c_V} = \frac{\frac{f+2}{2}R}{\frac{f}{2}R} = \frac{f+2}{f}
+\end{align*}
+
+\subsection{Adiabatenexponent nach Rüchardt}
+\begin{figure} [!h]
+\centering
+\label{g:1}
+\includegraphics[scale=0.5]{Ruechardt.png}
+\protect\footnotemark
+\end{figure}
+\footnotetext{https://lp.uni-goettingen.de/get/text/3639 Abb.4338}
+Wird eine Kugel in eine Röhre geworfen wie zu sehen in Abb.\ref{g:1}, so dass kein Gas entweichen kann, führt die Kugel eine gedämpfte Schwingung aus. Grund dafür ist die periodische Umwandlung der kinetischen Energie der Kugel in einen Überdruck des Gases im Kolben und zurück.\\
+Sei $m$ die Masse der Kugel, $A$ die Querschnittsfläche des Rohrs, $p$ der Gasdruck im Kolben und $b$ der Luftdruck, so gilt, wenn sich die Kugel Gleichgewicht befindet
+\begin{align*}
+p &= b+ \frac{mg}{A} \\
+\tn{und } m\ddot{x} &= A \cdot dp
+\end{align*}
+wenn die Kugel um $\Delta x$ über die Gleichgewichtslage schwingt.\\
+Da dieser Vorgang adiabatisch erfolgt, ist $pV^{\kappa} = const$ und man erhält mit differenzieren nach $V$
+\begin{align*}
+dp &= -\kappa \cdot p \frac{dV}{V} \\
+&= -\kappa \frac{p \cdot A \cdot \Delta x}{V} \\
+\tn{es ist also} \\
+m \ddot{x} &= -\kappa \frac{p \cdot A^2 \cdot \Delta x}{V}
+\end{align*}
+Man erhält damit eine Schwingungsdauer $T$ von
+\begin{align*}
+T &= 2\pi \sqrt{\frac{m\cdot V}{\kappa \cdot A^2 \cdot p}}
+\end{align*}
+Mit $d$, Durchmesser des Glasrohrs ($A = \frac{1}{4} \pi d^2$) ergibt sich für den Adiabatenexponenten
+\begin{align*}
+\kappa &= \frac{4 \pi^2 \cdot m_{eff} \cdot V}{A^2 \cdot p \cdot T^2}
+\end{align*}
+$m_{eff}$ ist dabei die effektive Masse, die die Masse $m_L$ der im Rohr mitschwingenden Luftsäule beinhaltet: $m_{eff} = m + m_L$
+
+\subsection{Der Adiabatenexponent nach Clement-Desormes}
+Diese Methode beruht auf der Messung des Drucks vor und nach einer Expansion. Es wir dazu mit einem Blasebalg ein geringer Überdruck $\Delta p$ in einem Glasbehälter mit Volumen $V_0$  gegenüber dem Luftdruck $b$ erzeugt und ein thermischer Ausgleich der Kompressionswärme zu $T_0$ (Zimmertemperatur) erlaubt. Der verbleibende Überdruck wird mit dem U-Rohr Manometer gemessen (Zustand 1). \\
+Nun wird durch kurzzeitiges Öffnen des Entlüftungsventils das Gas gegen den Außendruck expandiert. Die verursacht einen Verlust innerer Energie, die Temperatur des Gases sinkt (Zustand 2). Nach Druckausgleich ist wieder das Volumen $V_0$ erreicht (Zustand 3). Wärmeaustausch mit der Umgebung verursacht einen Temperaturanstieg und damit einen Anstieg des Drucks (isochor, Zustand 4) \\
+Zusammenfassung der Zustände:
+\begin{table}
+\begin{tabular}{llll}
+Zustand 1: & $V=V_0$ & $p=b+\Delta p_1$ & $T=T_0$ \\
+Zustand 2: & $V=V_0+\Delta V$ & $p=b$ & $T=T_0-\Delta T$ \\
+Zustand 3: & $V=V_0$ & $p=b$ & $T=T_0-\Delta T$ \\
+Zustand 4: & $V=V_0$ & $p=b+\Delta p_2$ & $T=T_0$ \\
+\end{tabular}
+\end{table}
+Der Übergang von Zustand 1 zu 2 ist adiabatisch, mit der Poisson-Gleichung erhält man
+\begin{align}
+\label{eq:6}
+\left(b + \Delta p_1\right)V_0^{\kappa} &= b\left(V_0 + \Delta V\right)^{\kappa} \\
+\label{eq:7}
+\left(T_0 - \Delta T\right)\left(V_0 + \Delta V\right)^{\kappa -1} &= T_0 V_0^{\kappa -1}
+\end{align}
+Für $\Delta V \ll V_0$ gilt
+\begin{align*}
+\left(V_0 + \Delta V\right)^{\kappa} &= V_0^{\kappa}\left(1+ \frac{\Delta V}{V_0}\right)^{\kappa} \\
+\sim V_0^{\kappa} + \kappa \cdot V_0^{\kappa -1}\Delta V
+\end{align*}
+was Umformen von \ref{eq:6} und \ref{eq:7} in 
+\begin{align*}
+\frac{\Delta p_1}{b} &= \kappa \frac{\Delta V}{V_0} \\
+\tn{bzw.}
+\frac{\Delta T}{T_0} &= \left(\kappa -1 \right) \frac{\Delta V}{V_0}
+\end{align*}
+ermöglicht und woraus folgt
+\begin{align}
+\label{eq:8}
+\frac{\Delta T}{T_0} &= \frac{\kappa -1}{\kappa} \frac{\Delta p_1}{b}
+\end{align}
+Der Übergang von Zustand 3 zu 4 ist isochor, mit der allgemeinen Gasgleichung erhält man also
+\begin{align}
+\label{eq:9}
+\frac{b}{b +\Delta p_2} &= \frac{T_0 -\Delta T}{T_0} \\
+&= 1- \frac{\Delta T}{T_0}
+\end{align}
+Durch eliminieren von $\frac{\Delta T}{T_0}$ in \ref{eq:9} mittels \ref{eq:8} und auflösen nach $\kappa$ erhält man schließlich
+\begin{align*}
+\kappa &= \frac{\Delta p_1}{\Delta p_1 - \Delta p_2}
+\end{align*} 
+Für Messung der Druckdifferenzen mittels des U-Rohr Manometers werden die Höhen $h$ der Flüssigkeiten beidseitig der Spiegelskala abgelesen. Der Druck berechnet sich aus der Höhendifferenz $\Delta h = h_l - h_r$ über die Dichte der Flüssigkeit.
 
 
 \section{Durchführung}
