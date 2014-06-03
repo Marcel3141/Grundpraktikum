@@ -16,7 +16,95 @@
 
 \section{Theorie}
 \label{sec:theorie}
+\subsection{\person{Van-der-Waals}-Gleichung}
+Für ideale Gase gilt die Zustandsgleichung $p\cdot V = n\cdot R\cdot T$.
+Doch für reale Gase kann diese Gleichung nicht gelten. \\
+Zum einen hat ein reales Gas bei $0\kelvin$ im Gegensatz zum idealen Gas immernoch ein \textit{Eigenvolumen}, da die Gasmoleküle nicht punktförmig sind.
+Dieses Eigenvolumen, das offensichtlich proportional zur Teilchenanzahl ist, muss folglich vom Gesammtvolumen abgezogen werden, also $V \rightarrow V-b\cdot n$ mit der \textit{Eigenvolumenkonstante} $b$.
+\\
+Zum anderen wirken Dipol-Dipol- und \person{Van-der-Waals}-Kräfte zwischen den Teilchen.
+Wie in Versuch 5 beschrieben, sind diese Kräfte proportional zur Teilchenzahl an der Oberfläche, da sich die Kräfte im Inneren aufheben, und proportional zum mittleren Abstand der Teilchen.
+Da sowohl die Teilchenanzahl an der Oberfläche, als auch der mittlere Teilchenabstand proportional zur Teilchendichte $n/V$ ist, ist der Druck $p$ in einem realen Gas um den \textit{Binnendruck} $a\cdot \frac{n^2}{V^2}$ größer, also $p \rightarrow p + a\cdot \frac{n^2}{V^2}$ mit der \textit{Binnendruckkonstanten} $a$.
+\\
+Unter Einbeziehung dieser Korrekturterme ergibt sich die \person{Van-der-Waals}-Gleichung
+\begin{align}
+ \left(p+a\cdot \frac{n^2}{V^2}\right) \cdot \left(V-b\cdot n\right) = n\cdot R\cdot T \label{VdW_Gleichung} \\
+\equals 
+ p = \frac{n\cdot R\cdot T}{V-b\cdot n}-a\cdot \frac{n^2}{V^2}\nn
+\end{align}
+\begin{figure}
+ \centering
+ \includegraphics[scale=0.5]{maxwell.png}
+ \caption{Isothermen der \person{Van-der-Waals}-Gleichung mit \person{Maxwell}-Geraden\protect\footnotemark\label{fig:maxwell}}
+\end{figure}
+\footnotetext{https://lp.uni-goettingen.de/get/text/655\;\;Abb. 732}
 
+\subsection{\person{Maxwell}-Geraden}
+Wie man in der Abbildung \ref{fig:maxwell} erkennen kann, haben die Isothermen der \person{Van-der-Waals}-Gleichung für Temperaturen unter $T_k$ ein Maximum und ein Minimum.
+Dieser Bereich verletzt den zweiten Hauptsatz der Thermodynamik, denn wenn bei isothermer Expansion der Druck steigt, müssten bei steigendem Volumen mehr Teilchen auf eine konstante Fläche treffen, also müsste die Teilchendichte am Rand steigen und somit in der Mitte sinken.
+Damit würde die Entropie sinken, was ein wiederspruch zum 2. Hauptsatz ist.
+\\
+Um dieses Problem zu lösen, werden die \person{Maxwell}-Geraden als isobare Verbindungsstücke so eingefügt, dass die Flächen zwischen der Isothermen der \person{Van-der-Waals}-Gleichung und der \person{Maxwell}-Geraden oberhalb und unterhalb dieser Geraden gleich groß sind (siehe Abbildung \ref{fig:maxwell}).
+In diesem Bereich der Isothermen findet der Übergang von flüssig nach gasförmig statt.
+\\
+Für hohere Temperaturen wird die \person{Maxwell}-Gerade immer kleiner bis bei der kritischen Temperatur $T_k$ ein Sattelpunkt anstatt der Extrema vorliegt und es folglich keine \person{Maxwell}-Gerade mehr gibt.
+Damit findet auch kein Aggregatszustandswechsel für Temperaturen über $T_k$ mehr statt.
+Da ein Sattelpunkt vorliegt folgt aus der \person{Van-der-Waals}-Gleichung
+\begin{align}
+ T_k = \frac{8}{27}\cdot \frac{a}{R\cdot b}
+\end{align}
+und damit
+\begin{align}
+ V_k &= 3\cdot b \tn{\;\; und}\\
+ p_k &= \frac{1}{27}\cdot \frac{a}{b^2}
+\end{align}
+
+
+\subsection{\person{Clausius-Clapeyron} Gleichung}
+Wenn man ein $\mol$ einer Flüssigkeit in ein Gefäß mit einem größeren Volumen als $V_{fl}$ füllt, werden manche Moleküle verdampfen und es bildet sich eine Gasmenge über der Flüssigkeit mit dem Druck $p_s$.
+Da zum austreten aus der Flüssigkeit Energie aufgewentet werden muss, kühlt sich die Flüssigkeit bzw. es muss eine Energiemenge $\Lambda_V$ hinzugefügt werden um die Temperatur konstant zu halten.
+\\
+Um diese Energiemenge für ein zu bestimmen betrachte man folgenden \person{Carnot}-Prozess: \\
+\begin{itemize}
+ \item $1\rightarrow 2$: isobare und isotherme Verdampfung von $V_1=V_{fl}$ bis $V_2=V_D$ bei $T_1=T+\tn{d}T$ und $p_1=p_s+\tn{d}p_s$, also eine \person{Maxwell}-Gerade 
+ \item $2\rightarrow 3$: adiabatisch infinitesimal auf $T_2=T$ und $p_2=p_s$ reduziert und kein Aggregatszustandswechsel
+ \item $3\rightarrow 4$: isobare und isotherme Konsensierung von $V_2=V_D$ bis $V_1=V_{fl}$ bei $T_2=T$ und $p_2=p_s$, also eine \person{Maxwell}-Gerade
+ \item $4\rightarrow 1$: adiabatisch infinitesimal auf $T_1=T+\tn{d}T$ und $p_1=p_s+\tn{d}p_s$ erhöht und kein Aggregatszustandswechsel
+\end{itemize}
+Die verrichtete Arbeit ist somit
+\begin{align}
+ \Delta W_1 &= \left(p_s+\tn{d}p_s\right)\cdot \left(V_{fl}-V_D\right)  \tn{\;\; von } 1\rightarrow 2 \nn\\
+ \Delta W_2 &= p_s\cdot \left(V_D-V_{fl}\right) \tn{\;\; von } 3\rightarrow 4 \nn\\
+ \folgt \Delta W &= \Delta W_1 +\Delta W_2 = \tn{d}p_s\cdot \left(V_{fl}-V_D\right)
+\end{align}
+Da es sich um einen \person{Carnot}-Prozess handelt gilt für den Wirkungsgrad
+\begin{align}
+ \eta = -\frac{\Delta W}{\Delta Q} = \frac{T_{warm}-T_{kalt}}{T_{warm}} = \frac{T+\tn{d}T-T}{T+\tn{d}T} = \frac{\tn{d}T}{T+\tn{d}T} \approx \frac{\tn{d}T}{T} \nn
+\end{align}
+wobei $\Delta Q = \Lambda_V$ die hinzugefügte Energie ist. Es gilt also die \person{Clausius-Clapeyron} Gleichung
+\begin{align}
+\Lambda_V &= -\tn{d}p_s\cdot \left(V_{fl}-V_D\right)\cdot\frac{T}{\tn{d}T} \nn\\
+          &= T\cdot \frac{\tn{d}p_s}{\tn{d}T}\cdot \left(V_D-V_{fl}\right)
+\end{align}
+Aus der idealen Gasgleichung folg für $n = 1\mol$
+\begin{align}
+ p_s\cdot V_D \approx R\cdot T\cdot\nn
+\end{align}
+Wenn der Außendruck nicht zu hoch ist gilt im Allgemeinen $V_D \gg V_{fl}$. Durch einsetzen erhält man 
+\begin{align}
+ \Lambda_V &= T\cdot \frac{\tn{d}p_s}{\tn{d}T}\cdot \frac{R\cdot T}{p_s} \nn\\
+ \equals \frac{\Lambda_V \cdot \tn{d}T}{R\cdot T^2}&= \frac{\tn{d}p_s}{p_s} \nn
+\end{align}
+durch beidseitiges Integrieren erhält man
+\begin{align}
+  ln\left(p_s\right) = -\frac{\Lambda_V}{R\cdot T} + \const
+\end{align}
+mit der Randbedingung $p_s(T_0) = p_0$ folgt die Dampfdruckformel
+\begin{align}
+ p_s = p_0 \cdot \exp\left[\frac{\Lambda_V}{R}\cdot \left(\frac{1}{T_0}-\frac{1}{T}\right)\right]
+\end{align}
+
+%\subsection{Widerstandsthermometer}
 
 \section{Durchführung}
 \label{sec:durchfuehrung}
