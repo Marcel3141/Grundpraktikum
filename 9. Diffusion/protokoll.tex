@@ -1,0 +1,110 @@
+\documentclass[12pt, a4paper, twoside]{scrartcl}
+ \input{header.tex}
+
+\newcommand{\person}[1]{\textsc{#1}}
+
+
+
+
+ \begin{document}
+ %Titelseite
+\input{title.tex}
+\cleardoublepage
+\tableofcontents
+\cleardoublepage
+\setcounter{page}{1}
+
+\section{Einleitung}
+\label{sec:einleitung}
+
+Tropft man Tinte in ein mit Wasser gefülltes Glas kann man beobachten, wie sich die Farbe im Wasser ausbreitet, bis sie gleichmäßig verteilt ist. Derselbe Effekt tritt auch bei Gasen auf, wie man sich durch öffnen einer Flasche mit einer intensiv riechenden Substanz wie zum Beispiel Parfüm in einem geschlossenen Raum verdeutlichen kann. Dieses selbstständige Durchmischen von Molekülen in Gasen und Flüssigkeiten wird Diffusion genannt und soll in diesem Versuch untersucht werden.
+
+\section{Theorie}
+\label{sec:theorie}
+
+\subsection{Die Fickschen Gesetze}
+
+Grundlage der Diffusion ist die Bewegung einzelner Teilchen in Gasen oder Flüssigkeiten. Diese Bewegung von Molekülen in einer Flüssigkeit oder einem Gas wird Braunsche Bewegung genannt. Sie wird durch Stöße verursacht und ist unregelmäßig. Aufgrund der hohen betrachteten Teilchenzahl kann die Bewegungsrichtung der Teilchen nach einem Stoß als gleichverteilt angenommen werden. Die Verteilung der Teilchen im Gas/Wasser soll durch $n(x)$ beschrieben werden. Aus einem Gebiet $A$ mit einer höheren Teilchendichte als in der Umgebung von $A$ werden zunächst also mehr Teilchen aus $A$ hinausgestoßen als von der Umgebung in $A$ hinein gestoßen werden. Sobald die Teilchendichte in beiden Bereichen gleich hoch ist werden im Mittel genausoviele hinein wie hinaus gestoßen. Lokale Inhomogenitäten der Teilchendichte werden also durch einen Teilchenstrom ausgeglichen. Dieser wird Diffusionsstrom genannt und kann mit einer Stromdichte $\vec{j}(\vec{x})$ beschrieben werden der proportional zur lokalen Änderung der Teilchendichte verläuft, also entgegen dem Konzentraionsgradienten $\nabla n$. Dieser Zusammenhang ist das 1. Fiksche Gesetz
+\begin{align}
+\vec{j}(\vec{x})=-D\ \nabla n.
+\end{align}
+$D$ steht dabei für eine vom Stoff abhängige Diffusionskonstante. \\
+
+\vspace*{0.5cm}
+Wir betrachte ein abgeschlossenes System also muss die Teilchenzahl konstant bleiben. Das heißt, dass die Teilchenzahldichte in einem Gebiet abnimmt wenn mehr Teilchen aus- als einströmen
+\begin{align*}
+\frac{\partial n}{\partial t}=-\nabla\cdot\vec{j}(\vec{x})
+\end{align*}
+
+Aus diesen beiden Gleichung erhält man die allgemeine Diffusionsgleichung
+\begin{align*}
+\frac{\partial n}{\partial t}=D\ \rm{div}\ \rm{grad}\ n=D\cdot\triangle n
+\end{align*}
+welche auch zweites Ficksches Gesetz genannt wird. Dies ist eine partielle Differentialgleichung. Um sie zu lösen werden zunächst beide Seiten fouriertransformiert um eine einfache lineare Differentialgleichung zu erhalten
+\begin{align*}
+\frac{\partial F(n)}{\partial t}=-k^2DF(n).
+\end{align*}
+Diese wird durch
+\begin{align*}
+F(n)=A\ \exp(-k^2Dt)\hspace*{1.0cm}mit\hspace*{1.0cm} F(t=0)=A
+\end{align*}
+gelöst.
+Zum Zeitpunkt $t=0$ sind die Anfangsbedingungen durch
+\begin{align*}
+ n(x)=\left\{\begin{array}{cl} c_0, & \mbox{falls }x\leq0\\ 
+ 					0, & \mbox{sonst} \end{array}\right. 
+\end{align*} 
+gegeben. $c_0$ entspricht dabei der Konzentration an der Startlinie. Man erhält damit die Lösung
+\begin{align*}
+F(n)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^0c_0\exp(ikx)\rm dx
+\end{align*}
+Durch Rücktransformation und umformen erhält man 
+\begin{align}
+n(x,t)=\frac{c_0}{2}\left[1-\rm{erf}\left(\frac{x}{\sqrt{4Dt}}\right)\right],
+\end{align}
+wobei
+\begin{align*}
+\rm{erf}(x)=\frac{2}{\sqrt{\pi}}\int_0^x\exp(-v^2)dv
+\end{align*}
+die Gaußsche Fehlerfunktion ist.
+
+\subsection{Wheatstonesche Brückenschaltung}
+
+Die Wheatstonsche Brückenschaltung ist in Abbildung \ref{img:schaltung} dargestellt. Sie wird verwendet um Widerstände zu messen. Dazu werden drei bekannte Widerstaänder $R_2,\ R_3\ \rm{und}\ R_4$ benötigt. $R_1$ ist der zu bestimmende Widerstand, in unserem Fall also der Photowiderstand. \\
+
+Die Gesamtspannung $U_0$ wird in zwei Teilspannungen $U_1$ und $U_2$ aufgeteilt.
+\begin{align*}
+U_1=U_0\frac{R_1}{R_1+R_2} \\
+U_2=U_0\frac{R_3}{R_3+R_4}
+\end{align*}
+Diese sind an den Verbindungspunkten genau dann gleich Null, wenn gilt
+\begin{align*}
+\frac{R_2}{R_1}=\frac{R_4}{R_3} 
+\end{align*}
+Also ist $U_1=U_2$ und man sieht
+\begin{align}
+R_1=\frac{R_2R_3}{R_4}
+\end{align}
+
+
+\begin{figure} [h]
+\centering
+\includegraphics[scale=0.8]{schaltung.png}
+\caption{\label{img:schaltung}Aufbau der Wheatstoneschen Brückenschaltung\protect\footnotemark}
+\end{figure}
+\footnotetext{https://lp.uni-goettingen.de/get/text/3665}
+
+\section{Durchführung}
+\label{sec:durchfuehrung}
+
+
+
+\section{Auswertung}
+\label{sec:auswertung}
+
+
+
+\section{Diskussion}
+\label{sec:diskussion}
+
+\end{document}
