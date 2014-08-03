@@ -1,0 +1,160 @@
+\documentclass[12pt, a4paper, twoside]{scrartcl}
+ \input{header.tex}
+
+\newcommand{\person}[1]{\textsc{#1}}
+
+ \begin{document}
+ %Titelseite
+\input{title.tex}
+\cleardoublepage
+\tableofcontents
+\cleardoublepage
+\setcounter{page}{1}
+
+\section{Einleitung}
+\label{sec:einleitung}
+In diesem versuch soll das Trägheitsmoment genauer untersucht werden. Das Trägheitsmoment spielt bei Rotationsbewegungen die gleiche Rolle wie die Masse bei dem Verhältnis von Kraft und Beschleunigung. Es gibt den Widerstand eines starren Körpers gegenüber einer Änderung seiner Rotationsbewegung um eine Achse an.
+
+\section{Theorie}
+\label{sec:theorie}
+
+\subsection{Vergleich von Translation- und Rotationsbewegungen}
+Wie bereits erwähnt entspricht bei Rotationsbewegungen das Trägheitsmoment der Masse bei Translationsbewegungen. Schaut man sich die physikalischen Gleichungen an durch die Rotationsbewegungen beschrieben werden und vergleicht diese mit den Gleichungen der Translationsbewegungen stellt man viele Gemeinsamkeiten in deren Struktur fest. In Tabelle \ref{tab:analogien} sind diese Analogien aufgeführt.
+\renewcommand{\arraystretch}{1.2}
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|l|c|}
+	\hline
+    Translation & Observable & Rotation & Observable \\
+    \hline\hline
+    Ort & $\vec{r}$ & Winkel & $\vec{\varphi}$ \\
+    \hline
+    Geschwindigkeit & $\vec{v}=\dot{\vec{r}}$ & Winkelgeschwindigkeit & $\vec{\omega}=\dot{\vec{\varphi}}$ \\
+    \hline
+   	Beschleunigung & $\vec{a}=\dot{\vec{v}}$ & Winkelbeschleunigung & $\vec{\alpha}=\dot{\vec{\omega}}$ \\
+    \hline
+    Masse & $m$ & Trägheitsmoment & $J$ \\
+    \hline
+    Impuls & $\vec{p}=m\vec{v}$ & Drehimpuls & $\vec{L}=J\vec{\omega}$ \\
+  	\hline
+    Kraft & $\vec{F}=\dot{\vec{p}}$ & Drehmoment & $\vec{M}=\dot{\vec{L}}$ \\
+   	\hline
+    kinetische Energie & $E_{kin}=\frac{1}{2}m\vec{v}^2$ & Rotationsenergie & $E_{rot}=\frac{1}{2}J\omega^2$ \\   
+    \hline   
+ \end{tabular} 
+ \caption{\label{tab:analogien}Analogien zwischen den Bewegungsgleichungen von Translations- und Rotationsbewegungen}
+\end{table}
+
+\subsection{Definition des Trägheitsmomentes und der Steiner'sche Satz}
+Das Trägheitsmoment $J$ bezüglich einer Rotationsachse eines beliebigen Körpers mit Volumen $V$ und Massenverteilung $\rho\left(\vec{r}\right)$ wird durch
+\begin{align*}
+J=\int_Vr^2\rho\left(\vec{r}\right)\rm dV=\int_Vr^2\rm dm
+\end{align*}
+definiert. Dabei ist $\int_V\rm dm=M$ die Masse des Körpers und $r$ der Abstand des Massenelements $m_i$ von der Drehachse.\\
+
+Für Rotationsachsen A durch den Massenmittelpunkt des Körpers lässt sich das Trägheitsmoment $J_A$ von symmetrischen Körpern mit homogener Massenverteilung leicht ausrechnen. In Tabelle \ref{tab:beispiele} sind die für diesen Versuch relevanten Trägheitsmomente aufgeführt. Eine Herleitung findet man in Beispielsweise in [Dem I] S.133ff.
+\renewcommand{\arraystretch}{1.5}
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|}
+	\hline
+    Körper & Trägheitsmoment $J_A$ \\
+    \hline\hline
+    Kugel & $\frac{2}{5}MR^2$ \\ \hline
+    Zylinder & $\frac{1}{2}MR^2$ \\ \hline
+    Hohlzylinder & $\frac{1}{2}M(R_i^2+R_a^2)$ \\ \hline
+    Scheibe & $\frac{1}{2}MR^2$ \\ \hline
+    Stab & $\frac{1}{12}MR^2$ \\ \hline
+    Hantel\footnotemark & $\frac{1}{3}M_SL^2+2M_GL^2$ \\ \hline
+    Würfel & $\frac{1}{6}Ma^2$ \\ \hline 
+ \end{tabular} 
+ \caption{\label{tab:beispiele}Trägheitsmomente einiger Symmetrischer Körper bei Rotation um eine Symmetrieachse}
+\end{table}
+\footnotetext{$M_S$ ist die Masse des Stabs und $M_G$ die Masse der Gewichte}
+Um das Trägheitsmoment $J_B$ um eine beliebige Rotationsachse B im Abstand $b$ zum Schwerpunkt zu bestimmen ist eine weitere Rechnung notwendig. Nach Definition ist
+\begin{align*}
+J_B&=\int_Vr^2\rm dm \\
+	&=\int_V\left(r_{A}+b\right)^2 \\
+	&=\int_Vr_A^2\rm dm+2b\cdot\int_V\rm dm+b^2\cdot\int_V\rm dm. \\
+	&=J_A+2b\cdot\int_V\rm dm+b^2M.
+\end{align*}
+Liegt der Koordinaten Ursprung o.B.d.A im Schwerpunkt verschwindet der mittlere Term aus dieser Gleichung und man erhält den Steinerschen Satz
+\begin{align*}
+J_B=J_A+b^2M.
+\end{align*}
+
+\subsection{Der Trägheitsellipsoid}
+Betrachtet man nur Drehungen um den Schwerpunkt kann man mithilfe des Trägheitstensors $\textbf{J}$ die Körperträgheit in alle möglichen Drehachsen angeben. Der Trägheitstensor ist eine 3x3-Matrix und wird definiert durch
+\begin{align*}
+\textbf{J}=\begin{pmatrix} J_{xx} & J_{xy} & J_{xz} \\ J_{yx} & J_{yy} & J_{yz} \\ J_{zx} & J_{zy} & J_{zz} \end{pmatrix}.
+\end{align*}
+Mit dem Trägheitstensor kann man die Rotationsenergie bei der Drehung um eine Drehachse $\vec\omega=(\omega_x\ \omega_y\ \omega_z)^T$ durch
+\begin{align*}
+E_{Rot}=\frac{1}{2}\vec\omega^T\cdot\textbf{J}\cdot\vec\omega
+\end{align*}
+ausdrücken. Bildet die Drehachse $\vec\omega$ die Winkel $\alpha,\beta,\delta$ mit den drei Koordinatenachsen gilt
+\begin{align*}
+\omega_x=\omega\cos\alpha,\hspace{0.5cm}\omega_y=\omega\cos\beta,\hspace{0.5cm}\omega_z=\omega\cos\delta.
+\end{align*}
+Schreibt man die Rotationsenergie als $E_{Rot}=\frac{1}{2}I\omega^2$ lässt sich das skalare Trägheitsmoment $I$ bestimmen\footnote{[Dem I], S.140}. Dieser skalare Wert $I$ des Trägheitsmoments als Funktion der Raumrichtung $(\alpha,\beta,\delta)$ der Drehachse bildet einen Trägheitsellipsoid.\\
+Der Trägheitstensor lässt sich zu
+\begin{align*}
+\textbf{J}=\begin{pmatrix} J_{a}& 0& 0 \\ 0& J_{b} &0  \\ 0& 0& J_{c} \end{pmatrix}.
+\end{align*}
+diagonalisieren. Die Diagonalelemente sind die drei Hauptträgheitsmomente von denen je eines das größtmögliche und eines das kleinstmögliche Trägheitsmoment ist das der Körper bei Rotation erreichen kann. Führt man ein Koordinatensystem $(\xi,\eta,\zeta)$ das von den orthogonalen Vektoren $\mathbf\xi$, $\mathbf{\eta}$ und $\mathbb{\zeta}$ aufgespannt wird, die in die drei Hauptachsen $a,b,c$ des Trägheitsellipsoid fallen. In diesem Koordinatensystem ist dann die Ellipsengleichung
+\begin{align*}
+\xi^2J_a+\eta^2J_b+\zeta^2J_c=1.
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+\subsection{Das physikalische Pendel}
+Das physikalische Pendel besteht aus einem ausgedehnten, starren Körper mit Masse $M$, der im Abstand $d$ von einem Aufhängepunkt, der gleichzeitig der Koordinatenursprung ist, durch eine bewegliche Achse befestigt ist. Befindet sich das Pendel in einer Auslenkung $\varphi$ aus der Ruhelage beginnt es aufgrund der Schwerkraft zu schwingen.Befindet sich die Ruhelage des Pendels auf der x-Achse ist die wirkende Kraft durch $F_i=(m_ig,0,0)$ gegeben und es gilt
+\begin{align*}
+J\ddot{\varphi}=-\sum_im_iy_ig=-Mgd_y,
+\end{align*}
+wobei $d_y$ die y-Komponente des Schwerpunktvektors $\mathbf d=(d_x,d_y,0)=d(\cos\varphi,\sin\varphi,0)$ ist. Daraus folgt für die Pendelbewegung die Differentialgleichung
+\begin{align*}
+J\ddot\varphi+Mgd\sin\varphi=0.
+\end{align*}
+Der Vergleich mit dem mathematische Pendel zeigt, dass das physikalische Pendel wie ein mathematisches Pendel mit Fadenlänge $l=\frac{J}{Md}$ schwingt. 
+
+
+
+
+%-------------
+%Betrachtet man nur Drehungen um den Schwerpunkt kann man mithilfe des Trägheitstensors $\Omega$ die Körperträgheit in alle möglichen Drehachsen angeben. Der Trägheitstensor ist eine 3x3-Matrix und wird definiert durch
+%\begin{align*}
+%\textbf{J}_{lm}=\sum_im_i\left(r_i^2\delta_{lm}-x_{il}x_{im}\right);\vspace{2cm}l,m=1,2,3.
+%\end{align*}
+%Diagonalisiert man den Trägheitstensor bestehen die Diagonalelemente aus den drei Hauptträgheitsmomenten $J_x,$ $J_y$ und $J_z$ von denen je eines das größtmögliche und eines das kleinstmögliche Trägheitsmoment ist das der Körper bei Rotation erreichen kann. Normiert man diese Werte erhält man ein Koordinatensystem $(\leftx',y',z'\right)$ das die Ellipsengleichung $x'^2J_x+y'y^2J_y+z'^2J_z$. Man nennt 
+\section{Durchführung}
+\label{sec:durchfuehrung}
+
+
+\section{Auswertung}
+\label{sec:auswertung}
+
+
+\section{Diskussion}
+\label{sec:diskussion}
+
+
+\section*{Literatur}
+
+[Dem I] Demtröder Wolfgang, Experimentalphysik 1, 6. Auflage
+
+\newpage
+\section*{Anhang}
+
+
+
+
+\end{document}
